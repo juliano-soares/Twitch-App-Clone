@@ -3,6 +3,12 @@ import { View, FlatList } from 'react-native';
 
 import { Wrapper, Container, Main } from './styles';
 import Header from '../../components/Header';
+import Heading from '../../components/Heading';
+import Title from '../../components/Title';
+import CategoryList from '../../components/CategoryList';
+import StreamList from '../../components/StreamList';
+import ChannelList from '../../components/ChannelList';
+
 
 interface Item {
   key: string;
@@ -14,43 +20,43 @@ const Following: React.FC = () => {
     const items: Item[] = [
       {
         key: 'PAGE_HEADING',
-        render: () => <View />
+        render: () => <Heading>Following</Heading>,
       },
       {
         key: 'FOLLOWED_CATEGORIES',
-        render: () => <View />,
+        render: () => <Title>Followed Categories</Title>,
         isTitle: true,
       },
       {
         key: 'C1',
-        render: () => <View />,
+        render: () => <CategoryList />,
       },
       {
         key: 'LIVE_CHANNELS',
-        render: () => <View />,
+        render: () => <Title>Live Channels</Title>,
         isTitle: true,
       },
       {
         key: 'C2',
-        render: () => <View />,
+        render: () => <StreamList />,
       },
       {
-        key: 'CONTINUE_CHANNELS',
-        render: () => <View />,
+        key: 'CONTINUE_WATCHING',
+        render: () => <Title>Continue Watching</Title>,
         isTitle: true,
       },
       {
         key: 'C3',
-        render: () => <View />,
+        render: () => <StreamList />,
       },
       {
         key: 'OFFLINE_CHANNELS',
-        render: () => <View />,
+        render: () => <Title>Offiline Channels</Title>,
         isTitle: true,
       },
       {
         key: 'C4',
-        render: () => <View />,
+        render: () => <ChannelList />,
       },
     ];
 
@@ -76,6 +82,7 @@ const Following: React.FC = () => {
             stickyHeaderIndices={indices}
             onRefresh={() => { }}
             refreshing={false}
+          />
         </Main>
       </Container>
 
